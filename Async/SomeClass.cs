@@ -18,17 +18,22 @@ namespace Async
 
             Task.Run(() =>
             {
+
                 try
                 {
+                   
+               // throw new Exception();
+
+
                     switch (data)
                     {
                         case "1":
                             Console.WriteLine("{0}", data);
                             break;
                         case "2":
-                          //  throw null;
-                            Console.WriteLine("{0}", data);
-                            break;
+                            throw new Exception();
+                         // Console.WriteLine("{0}", data);
+                         // break;
                         case "3":
                             Console.WriteLine("{0}", data);
                             break;
@@ -47,7 +52,7 @@ namespace Async
 
         public async Task<SendData> QueryMethodAsync(string data)
         {
-            SendData sendDada = null;
+            SendData sendDada = null; string error = null;
             await mutex.WaitAsync().ConfigureAwait(false);
             try
             {

@@ -25,34 +25,35 @@ namespace Async
 
         public static void M ()
         {
-            var a = new Program().Method("");
+            var a = new Program().Method("2");
             Console.WriteLine("{0}    {1}", a.Data, a.Error);
+            Console.ReadLine();
 
         }
 
         public SendData Method(string data)
         {
-            return  MethodAcync(data).GetAwaiter().GetResult();
+            return  MethodAcync("2").GetAwaiter().GetResult();
         }
 
         public async Task<SendData>  MethodAcync(string data)
         {         
             string error = null;//_someClass.QueryMethodAsync(data)
-            var result = await _someClass.QueryMethodAsync(data).ContinueWith(innerTask =>
-            {
-                if (innerTask.Status == TaskStatus.Faulted)
-                {
-                    foreach (var err in innerTask.Exception.InnerExceptions)
-                    {
-                        error += err;
-                    }
-                    return new SendData { Data = false, Error = error };
-                }
+            var result = await _someClass.QueryMethodAsync("2");//.ContinueWith(innerTask =>
+            //{
+            //    if (innerTask.Status == TaskStatus.Faulted)
+            //    {
+            //        foreach (var err in innerTask.Exception.InnerExceptions)
+            //        {
+            //            error += err;
+            //        }
+            //        return new SendData { Data = false, Error = error };
+            //    }
 
-                // sendData = innerTask.Result;
-                // if(innerTask.Status ==TaskStatus.RanToCompletion)
-                return innerTask.Result;
-            }, TaskContinuationOptions.ExecuteSynchronously);
+            //    // sendData = innerTask.Result;
+            //    // if(innerTask.Status ==TaskStatus.RanToCompletion)
+            //    return innerTask.Result;
+            //}, TaskContinuationOptions.ExecuteSynchronously);
             return result;
         }
 
