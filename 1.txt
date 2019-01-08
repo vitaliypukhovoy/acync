@@ -1,1 +1,2 @@
 https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md
+https://github.com/ServiceStack/ServiceStack/blob/master/src/ServiceStack/AsyncExtensions.cs
