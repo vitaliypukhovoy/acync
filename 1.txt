@@ -60,3 +60,62 @@ https://habr.com/post/78299/
             }
           },
           {
+          
+                      var o = new JArray(JObject.FromObject(new
+            {
+                error = new
+                {
+                    vbool = new
+                    {
+                        should =  from p in list
+                         select new   {
+                            vbool = new
+                            {
+                                must = (p > 3) ?(from c in list
+                                       select new
+                                       {
+                                           match = new
+                                           {
+                                               cause = c
+                                           }
+                                       }): (from c in list1
+                                            select new
+                                            {
+                                                match = new
+                                                {
+                                                    cause = c
+                                                }
+                                        })
+                                 }
+                           }
+                    }
+                },
+                warning = new
+                {
+                    vbool = new
+                    {
+                        should = from p in list1
+                                 select new
+                                 {
+                                     vbool = new
+                                     {
+                                         must = from c in list
+                                                select new
+                                                {
+                                                    match = new
+                                                    {
+                                                        cause = c
+                                                    }
+                                                }
+                                     }
+                                 }
+                    }
+                },
+                fields =new
+                {
+                    key = new
+                    {
+
+                    }
+                }
+            }));
