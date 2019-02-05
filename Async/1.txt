@@ -1,0 +1,62 @@
+https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md
+https://github.com/ServiceStack/ServiceStack/blob/master/src/ServiceStack/AsyncExtensions.cs
+https://habr.com/post/78299/
+
+      //new JProperty("warning",
+                //    new JObject(new JProperty("bool",
+                //                new JObject(new JProperty("should",
+                //                    new JArray(from t in allRulesWarning
+                //                               where t.ErrorWarning == false
+                //                               select new JObject(new JProperty("bool",
+                //                               new JObject(new JProperty("must",
+                //                                  new JArray(new JObject(
+                //                                     new JProperty("match", t.CustomFields != null ?
+                //                                        (from c in t.CustomFields
+                //                                         select new JObject(new JProperty(c.Name,
+                //                                               new JValue(c.Value)))) :
+                //                                                 (from c in t.Fields
+                //                                                  select new JObject(new JProperty(c.Name,
+                //                                                   new JValue(c.Value))))))))))))))))),
+
+                //new JProperty("fields", new JObject(allRulesWarning.SelectMany(i => i.vField).GroupBy(g => g).Select(f => new JProperty(f.Key, new JObject())
+                //)))));
+
+
+[
+  {
+    "error": {
+      "bool": {
+        "should": [
+          {
+            "bool": {
+              "must": [
+                {
+                  "match": [
+                    {
+                      "cause!!!": 0
+                    },
+                    {
+                      "system!!!": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "must": [
+                {
+                  "match": [
+                    {
+                      "cause!!!": 2
+                    },
+                    {
+                      "system!!!": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
